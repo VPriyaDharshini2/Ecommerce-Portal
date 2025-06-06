@@ -1,23 +1,49 @@
-const SUPABASE_URL = "https://dbmvdknkdzcqrzuuxtxd.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRibXZka25rZHpjcnp1dXh0eGQiLCJyb2xlIjoiYW5vbiIsImlhdCI6MTc0OTE5MzYyNiwiZXhwIjoyMDY0NzUxMjI2fQ.PV1jNkb_BHJZwV4TS6S_vn0mNMXFoMc3ceYcFVuPEEA";
-
-const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-async function login() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const role = document.getElementById('role').value;
-
-    let { data, error } = await client.auth.signInWithPassword({ email, password });
-    if (error) return alert(error.message);
-
-    const { data: userData } = await client
-        .from('users')
-        .select()
-        .eq('email', email)
-        .single();
-
-    if (!userData || userData.role !== role) return alert("Invalid role");
-
-    window.location.href = role === 'buyer' ? 'buyer.html' : 'seller.html';
-}
+document.addEventListener("DOMContentLoaded", () => {
+    const SUPABASE_URL = "https://eqhetdbwdivpeilymyyg.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxaGV0ZGJ3ZGl2cGVpbHlteXlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkyMTAzNTcsImV4cCI6MjA2NDc4NjM1N30.wry7A86h5mZlNu-WEFLlngxcv1b0JukSSBaumrSzhKo";
+  
+    // Use `window.supabase` to access the loaded library
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  
+    window.login = async function () {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const role = document.getElementById("role").value;
+  
+      try {
+        // 🔐 Sign in the user
+        const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
+  
+        if (authError) {
+          alert("Login failed: " + authError.message);
+          return;
+        }
+  
+        // ✅ Fetch user role from Supabase table (assuming you have a 'users' table with 'role' and 'email')
+        const { data: userData, error: userError } = await supabase
+          .from("users")
+          .select("role")
+          .eq("email", email)
+          .single();
+  
+        if (userError || !userData) {
+          alert("Failed to retrieve user role");
+          return;
+        }
+  
+        if (userData.role !== role) {
+          alert("Invalid role selected");
+          return;
+        }
+  
+        // ✅ Redirect based on role
+        window.location.href = role === "buyer" ? "buyer.html" : "seller.html";
+      } catch (err) {
+        console.error("Unexpected error:", err);
+        alert("Unexpected error: " + err.message);
+      }
+    };
+  });
