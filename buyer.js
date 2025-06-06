@@ -1,8 +1,10 @@
 // buyer.js
 
-const SUPABASE_URL = "https://slxrikrmeaoobwlamjgu.supabase.co";
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNseHJpa3JtZWFvb2J3bGFtamd1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkxODg1ODUsImV4cCI6MjA2NDc2NDU4NX0.EC6jNF_g_y__JFOdpzNVCPZ6eOCQefFavxRA6-PriyA';
+const SUPABASE_URL = "https://dbwmdvkndczqruuzwxtd.supabase.co";
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRid21kdmtuZGN6cXJ1dXp3eHRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkxOTQ1MzEsImV4cCI6MjA2NDc3MDUzMX0.U--eqvp3XE-L75Nf5qjCUve6-secciOHFDY_oTKaJFM';
+
 const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
 
 
 async function loadProducts() {
