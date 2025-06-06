@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const SUPABASE_URL = "https://eqhetdbwdivpeilymyyg.supabase.co";
-    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxaGV0ZGJ3ZGl2cGVpbHlteXlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkyMTAzNTcsImV4cCI6MjA2NDc4NjM1N30.wry7A86h5mZlNu-WEFLlngxcv1b0JukSSBaumrSzhKo";
+    const SUPABASE_URL = "https://dbwmdvkndczqruuzwxtd.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRid21kdmtuZGN6cXJ1dXp3eHRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkxOTQ1MzEsImV4cCI6MjA2NDc3MDUzMX0.U--eqvp3XE-L75Nf5qjCUve6-secciOHFDY_oTKaJFM";
   
     // Use `window.supabase` to access the loaded library
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
