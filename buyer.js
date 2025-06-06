@@ -2,8 +2,7 @@
 
 const SUPABASE_URL = "https://dbwmdvkndczqruuzwxtd.supabase.co";
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRid21kdmtuZGN6cXJ1dXp3eHRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkxOTQ1MzEsImV4cCI6MjA2NDc3MDUzMX0.U--eqvp3XE-L75Nf5qjCUve6-secciOHFDY_oTKaJFM';
-
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 
 
